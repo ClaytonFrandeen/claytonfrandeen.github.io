@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+.Title {
+    color : #ff8c00;
+    text-align : center;
+    background-color:  #994a00;
+    font-family: Audiowide;
+    border: 2px solid black;
+    box-shadow: 4px 4px 0px black;
+    padding: 1rem;
+}
+
+body {
+    background-color:   #fff2e6;
+}
+
+p {
+    font-family: 'Courier Prime', Courier, monospace;
+}
