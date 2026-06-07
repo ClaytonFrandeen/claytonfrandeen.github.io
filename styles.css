@@ -1,4 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+:root {
+      --cream:   #fff2e6;
+      --orange:  #994a00;
+      --orange2: #cc6600;
+      --black:   #0a0a0a;
+      --shadow:  4px 4px 0px var(--black);
+      --shadow-lg: 6px 6px 0px var(--black);
+    }
+
+body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0,0,0,0.025) 0px,
+        rgba(0,0,0,0.025) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+ 
+    /* GRAIN OVERLAY */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: -50%;
+      width: 200%;
+      height: 200%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 9998;
+    }
+
 
 .Title {
     color : #ff8c00;
@@ -17,3 +56,185 @@ body {
 p {
     font-family: 'Courier Prime', Courier, monospace;
 }
+
+.stripe-bar {
+      background: repeating-linear-gradient(
+        45deg,
+        var(--orange),
+        var(--orange) 10px,
+        var(--black) 10px,
+        var(--black) 20px
+      );
+      height: 12px;
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+     header {
+      border: 2px solid var(--black);
+      border-top: none;
+      background: var(--black);
+      color: var(--cream);
+      padding: 2rem 2rem 1.5rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+ 
+    .header-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange2);
+      margin-bottom: 0.5rem;
+    }
+ 
+    header h1 {
+      font-family: 'Audiowide', sans-serif;
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      color: var(--cream);
+      line-height: 1.1;
+      letter-spacing: 0.05em;
+    }
+ 
+    header h1 span {
+      color: var(--orange2);
+    }
+ 
+    .header-sub {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.8rem;
+      color: #aaa;
+      margin-top: 0.75rem;
+      letter-spacing: 0.1em;
+    }
+    .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        align-self : center;
+        
+    }
+
+    .header-buttons .btn {
+        width:120px;
+        text-align: center;
+    }
+    .status-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid #333;
+    }
+ 
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--orange2);
+      animation: blink 1.4s step-end infinite;
+    }
+    .dot:nth-child(2) { animation-delay: 0.5s; background: #cc9900; }
+    .dot:nth-child(3) { animation-delay: 1s; background: #4a994a; }
+ 
+    .status-text {
+      font-family: 'VT323', monospace;
+      font-size: 1rem;
+      color: #888;
+      letter-spacing: 0.08em;
+    }
+ 
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.1; }
+    }
+
+    .panel {
+      border: 2px solid var(--black);
+      box-shadow: var(--shadow);
+      padding: 1.25rem 1.5rem;
+      background: var(--cream);
+      position: relative;
+    }
+ 
+    .panel-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+ 
+    .panel-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--orange);
+      opacity: 0.4;
+    }
+ 
+    .panel h2 {
+      font-family: 'Audiowide', sans-serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      color: var(--black);
+    }
+ 
+    .panel p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: #2a1a00;
+    }
+ 
+
+    .btn {
+      display: inline-block;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.2rem;
+      border: 2px solid var(--black);
+      background: var(--orange);
+      color: var(--cream);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.08s, box-shadow 0.08s;
+    }
+ 
+    .btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px var(--black);
+    }
+ 
+    .btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px var(--black);
+    }
+ 
+    .btn-ghost {
+      background: transparent;
+      color: var(--black);
+    }
+ 
+    .btn-ghost:hover { background: var(--cream); }
