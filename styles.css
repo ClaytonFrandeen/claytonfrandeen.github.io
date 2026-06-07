@@ -147,7 +147,7 @@ p {
       height: 8px;
       border-radius: 50%;
       background: var(--orange2);
-      animation: blink 1.4s step-end infinite;
+      animation: blink 1.5s step-end infinite;
     }
     .dot:nth-child(2) { animation-delay: 0.5s; background: #cc9900; }
     .dot:nth-child(3) { animation-delay: 1s; background: #4a994a; }
@@ -205,7 +205,16 @@ p {
       color: #2a1a00;
     }
  
+    .panel-row {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
 
+    .panel-row .panel {
+      flex: 1;
+    }
+    
     .btn {
       display: inline-block;
       font-family: 'Share Tech Mono', monospace;
@@ -238,3 +247,278 @@ p {
     }
  
     .btn-ghost:hover { background: var(--cream); }
+
+
+    .cassette-shelf {
+      position: relative;
+      padding: 1.5rem 1rem 0;
+      border: 2px solid var(--black);
+      box-shadow: var(--shadow-lg);
+      background: #1a0f00;
+      overflow: visible;
+    }
+ 
+    /* Shelf plank */
+    .shelf-plank {
+      position: relative;
+      height: 14px;
+      background: #3a2000;
+      border-top: 2px solid #5a3500;
+      border-bottom: 2px solid #0a0500;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+      margin-top: 0.5rem;
+    }
+ 
+    /* ── TAPE ROW ── */
+    .tape-row {
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-end;
+      padding: 0 0.5rem;
+      flex-wrap: wrap;
+    }
+ 
+    /* ── SINGLE CASSETTE ── */
+    .cassette {
+      position: relative;
+      width: 72px;
+      cursor: pointer;
+      transform: translateY(0);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      flex-shrink: 0;
+    }
+ 
+    .cassette:hover {
+      transform: translateY(-22px);
+    }
+ 
+    /* The tape body */
+    .tape-body {
+      width: 72px;
+      height: 110px;
+      background: var(--tape-color, #1a1a1a);
+      border: 2px solid var(--black);
+      box-shadow: 2px 0 0 rgba(255,255,255,0.05) inset, -1px 0 0 rgba(0,0,0,0.5) inset;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+    }
+ 
+    /* Top notch cutout */
+    .tape-body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 28px;
+      height: 8px;
+      background: #1a0f00;
+      border-bottom: 2px solid rgba(0,0,0,0.4);
+    }
+ 
+    /* Label area */
+    .tape-label {
+      position: absolute;
+      top: 14px;
+      left: 4px;
+      right: 4px;
+      bottom: 28px;
+      background: var(--label-color, var(--cream));
+      border: 1px solid rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 3px;
+      overflow: hidden;
+    }
+ 
+    .tape-title {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.42rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--black);
+      line-height: 1.3;
+      font-weight: bold;
+      word-break: break-word;
+    }
+ 
+    .tape-subtitle {
+      font-family: 'VT323', monospace;
+      font-size: 0.6rem;
+      color: var(--orange);
+      margin-top: 3px;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+ 
+    /* Spool window */
+    .tape-window {
+      position: absolute;
+      bottom: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 44px;
+      height: 18px;
+      background: #0a0500;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 4px;
+    }
+ 
+    .spool {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #2a1500;
+      border: 1px solid #3a2500;
+      position: relative;
+    }
+ 
+    .spool::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #5a3500;
+    }
+ 
+    /* Hover glow */
+    .cassette:hover .tape-body {
+      box-shadow: 0 0 12px rgba(204, 102, 0, 0.3), 2px 0 0 rgba(255,255,255,0.05) inset;
+    }
+ 
+    /* ── PROJECT DETAIL PANEL ── */
+    .project-panel {
+      display: none;
+      margin-top: 2rem;
+      border: 2px solid var(--black);
+      box-shadow: var(--shadow-lg);
+      background: var(--cream);
+      padding: 1.5rem;
+      position: relative;
+      animation: slideIn 0.2s ease;
+    }
+ 
+    .project-panel.active {
+      display: block;
+    }
+ 
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+ 
+    .project-panel-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+ 
+    .project-panel-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--orange);
+      opacity: 0.4;
+    }
+ 
+    .project-panel h3 {
+      font-family: 'Audiowide', sans-serif;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+ 
+    .project-panel p {
+      font-size: 0.8rem;
+      line-height: 1.7;
+      color: #2a1a00;
+      margin-bottom: 1rem;
+    }
+ 
+    .project-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+ 
+    .tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border: 1px solid var(--orange);
+      color: var(--orange);
+    }
+ 
+    .project-link {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--black);
+      background: var(--orange);
+      color: var(--cream);
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      transition: transform 0.08s, box-shadow 0.08s;
+    }
+ 
+    .project-link:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--black);
+    }
+ 
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      background: none;
+      border: 1px solid #999;
+      color: #999;
+      padding: 0.2rem 0.5rem;
+      cursor: pointer;
+    }
+ 
+    .close-btn:hover { border-color: var(--black); color: var(--black); }
+
+    .now-playing {
+      font-family: 'VT323', monospace;
+      font-size: 0.9rem;
+      color: var(--orange2);
+      letter-spacing: 0.1em;
+      margin-top: 0.75rem;
+      min-height: 1.2rem;
+    }
+ 
+    .now-playing span {
+      animation: blink 1s step-end infinite;
+    }
+ 
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+ 
