@@ -1,3 +1,53 @@
+(function() {
+  const label = document.getElementById('bootLabel');
+  if (!label) return;
+ 
+  const lines = [
+    { text: '// INITIALIZING...', delay: 0 },
+    { text: '// SYS_CHECK · ALL SYSTEMS NOMINAL', delay: 1000 },
+    { text: '// SYS_INIT · UNIT-04 · READY', delay: 2000 },
+  ];
+ 
+  let lineIndex = 0;
+ 
+  function typeLine(text, onDone) {
+    label.textContent = '';
+    const cursor = document.createElement('span');
+    cursor.className = 'boot-cursor';
+    label.appendChild(cursor);
+ 
+    let i = 0;
+    const interval = setInterval(() => {
+      label.textContent = text.slice(0, i);
+      label.appendChild(cursor);
+      i++;
+      if (i > text.length) {
+        clearInterval(interval);
+        setTimeout(onDone, 300);
+      }
+    }, 38);
+  }
+ 
+  function runNext() {
+    if (lineIndex >= lines.length) {
+      // Final state — remove cursor, leave last line
+      const cursor = label.querySelector('.boot-cursor');
+      if (cursor) {
+        setTimeout(() => cursor.remove(), 800);
+      }
+      return;
+    }
+ 
+    const { text, delay } = lines[lineIndex];
+    lineIndex++;
+ 
+    setTimeout(() => typeLine(text, runNext), delay);
+  }
+ 
+  // Small initial pause before starting
+  setTimeout(runNext, 300);
+})();
+
 const projects = {
       trek: {
         title: "Trek",

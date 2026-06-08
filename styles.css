@@ -170,6 +170,7 @@ p {
       padding: 1.25rem 1.5rem;
       background: var(--cream);
       position: relative;
+      margin-bottom: 1.5rem;
     }
  
     .panel-label {
@@ -254,7 +255,7 @@ p {
       padding: 1.5rem 1rem 0;
       border: 2px solid var(--black);
       box-shadow: var(--shadow-lg);
-      background: #1a0f00;
+      background: #6c3f00;
       overflow: visible;
     }
  
@@ -262,7 +263,7 @@ p {
     .shelf-plank {
       position: relative;
       height: 14px;
-      background: #3a2000;
+      background: #3d2201;
       border-top: 2px solid #5a3500;
       border-bottom: 2px solid #0a0500;
       box-shadow: 0 4px 8px rgba(0,0,0,0.5);
@@ -272,7 +273,7 @@ p {
     /* ── TAPE ROW ── */
     .tape-row {
       display: flex;
-      gap: 0.6rem;
+      gap: 2.5rem;
       align-items: flex-end;
       padding: 0 0.5rem;
       flex-wrap: wrap;
@@ -294,8 +295,8 @@ p {
  
     /* The tape body */
     .tape-body {
-      width: 72px;
-      height: 110px;
+      width: 100px;
+      height: 64px;
       background: var(--tape-color, #1a1a1a);
       border: 2px solid var(--black);
       box-shadow: 2px 0 0 rgba(255,255,255,0.05) inset, -1px 0 0 rgba(0,0,0,0.5) inset;
@@ -313,33 +314,33 @@ p {
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 28px;
-      height: 8px;
+      width: 36px;
+      height: 6px;
       background: #1a0f00;
-      border-bottom: 2px solid rgba(0,0,0,0.4);
+      border-bottom: 1px solid rgba(0,0,0,0.4);
     }
  
     /* Label area */
     .tape-label {
       position: absolute;
-      top: 14px;
-      left: 4px;
-      right: 4px;
-      bottom: 28px;
+      top: 8px;
+      left: 5px;
+      right: 5px;
+      bottom: unset;
       background: var(--label-color, var(--cream));
       border: 1px solid rgba(0,0,0,0.3);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 4px 3px;
+      padding: 0px 4px;
       overflow: hidden;
     }
  
     .tape-title {
       font-family: 'Share Tech Mono', monospace;
-      font-size: 0.42rem;
-      letter-spacing: 0.05em;
+      font-size: 7px;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
       text-align: center;
       color: var(--black);
@@ -350,49 +351,63 @@ p {
  
     .tape-subtitle {
       font-family: 'VT323', monospace;
-      font-size: 0.6rem;
+      font-size: 10px;
       color: var(--orange);
-      margin-top: 3px;
-      text-align: center;
       letter-spacing: 0.05em;
     }
  
     /* Spool window */
     .tape-window {
       position: absolute;
-      bottom: 6px;
+      bottom: 4px;
       left: 50%;
       transform: translateX(-50%);
-      width: 44px;
-      height: 18px;
+      width: 76px;
+      height: 30px;
       background: #0a0500;
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 2px;
       display: flex;
       align-items: center;
       justify-content: space-around;
-      padding: 0 4px;
+      padding: 0 6px;
     }
  
     .spool {
-      width: 10px;
-      height: 10px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
       background: #2a1500;
       border: 1px solid #3a2500;
       position: relative;
+      flex-shrink: 0;
     }
- 
+    .spool::before {
+      content: '';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      border: 1px solid #3a2500;
+    }
     .spool::after {
       content: '';
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 3px;
-      height: 3px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: #5a3500;
+    }
+
+    .tape-ribbon {
+      height: 3px;
+      flex: 1;
+      background: #1a0800;
+      margin: 0 2px;
+      align-self: center;
     }
  
     /* Hover glow */
@@ -410,6 +425,7 @@ p {
       padding: 1.5rem;
       position: relative;
       animation: slideIn 0.2s ease;
+      margin-bottom: 1.5rem;
     }
  
     .project-panel.active {
@@ -430,6 +446,7 @@ p {
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      padding-right: 5rem;
     }
  
     .project-panel-label::after {
@@ -450,7 +467,7 @@ p {
       font-size: 0.8rem;
       line-height: 1.7;
       color: #2a1a00;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
  
     .project-tags {
@@ -521,4 +538,67 @@ p {
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
     }
+
+    .ticker-wrap {
+      overflow: hidden;
+      background: var(--black);
+      border: 2px solid var(--black);
+      border-top: none;
+      padding: 6px 0;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
  
+    .ticker-wrap::before,
+    .ticker-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 40px;
+      z-index: 2;
+      pointer-events: none;
+    }
+ 
+    .ticker-wrap::before {
+      left: 0;
+      background: linear-gradient(to right, var(--black), transparent);
+    }
+ 
+    .ticker-wrap::after {
+      right: 0;
+      background: linear-gradient(to left, var(--black), transparent);
+    }
+ 
+    .ticker-track {
+      display: flex;
+      white-space: nowrap;
+      animation: ticker-scroll 20s linear infinite;
+    }
+ 
+    .ticker-track:hover {
+      animation-play-state: paused;
+    }
+ 
+    .ticker-content {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--orange2);
+      flex-shrink: 0;
+    }
+ 
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+ 
+    .boot-cursor {
+      display: inline-block;
+      width: 7px;
+      height: 0.75em;
+      background: var(--orange2);
+      vertical-align: middle;
+      margin-left: 2px;
+      animation: blink 0.7s step-end infinite;
+    }
