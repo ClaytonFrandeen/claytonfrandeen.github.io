@@ -1,186 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head> 
-        <meta charset="UTF-8">
-        <title>Clayton's Portfolio</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Clayton's Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-    <body>
-        <div class="page">
-            <div class="stripe-bar"></div>
-            <header>
-                <div class="header-top">
-                    <div class="header-left">
-                    <div class="header-label">// SYS_INIT · UNIT-04 · READY</div>
-                    <h1>CLAYTON<br><span>FRANDEEN</span></h1>
-                    </div>
+  <body>
+    <div class="page">
+      <div class="stripe-bar"></div>
 
-                    <div class="header-buttons">
-                        <a href="https://github.com/ClaytonFrandeen" target="_blank" class="btn">GITHUB</a>
-                        <a href="https://www.linkedin.com/in/clayton-frandeen" target="_blank" class="btn">LINKEDIN</a>
-                    </div>
-
-                </div>
-
-                <div class="header-sub">MODEL: CF-2003 · VER 0.5 · WEBSITE IN-PROGRESS</div>
-                <div class="status-row">
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="status-text">SIGNAL OK &nbsp;·&nbsp; TAPE LOADED &nbsp;·&nbsp; STANDBY</div>
-                </div>
-            </header>
-            <div class="panel-row">
-                <div class="panel">
-                    <div class="panel-label">SYS_DATA</div>
-                    <h2>OPERATOR PROFILE</h2>
-                    <p>OBJECTIVE .......... Backend Software Engineering<br>
-                        SPECIALIZATION ..... Computer Vision / Game Dev<br>
-                        CURRENT PROJECT .... Unity Game Dev + This Site<br>
-                        MISSION ............ Tech for Environmental Impact
-                    </p>
-                </div>
-
-                <div class="panel">
-                    <div class="panel-label">SYS_LOG</div>
-                    <h2>FIELD NOTES</h2>
-                    <p>Recent CS grad from CSUSM, currently breaking into the industry. 
-                        I've got hands-on experience working with kids in STEM education through Tréobytes, and 
-                        I'm about to start a Game Test Analysis role at PlayStation in July.
-                        On the side I'm building this site and developing a game in Unity. 
-                        Long term I want to use software to tackle real environmental problems.
-                        When I'm not coding I collect and consume vinyls and books - you might spot them around the site.</p>
-                </div>
-            </div>
-
-            <div class="panel">
-                <div class="panel-label">SYS_FILES</div>
-                <h2>PROJECT OVERVIEW</h2>
-                <p>
-                    At CSU San Marcos I built projects across robotics, game dev, mobile, 
-                    and web, working in agile teams and applying real software engineering practices. 
-                    Skills picked up along the way include computer vision, databases, SOLID principles, 
-                    and backend architecture. Load a tape to dig in.
-                </p>
-            </div>
-            
-            <div class="cassette-shelf">
-                <div class="tape-row">
-                    
-                    <div class="cassette" onclick="openProject('trek')"
-                        style="--tape-color: #d70b0b; --label-color: #e8e0ff;">
-                        <div class="tape-body">
-                            <div class="tape-label">
-                                <div class="tape-title">Trek App</div>
-                                <div class="tape-subtitle">2025</div>
-                            </div>
-                            <div class="tape-window">
-                                <div class="spool"></div>
-                                <div class="tape-ribbon"></div>
-                                <div class="spool"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="cassette" onclick="openProject('avian')"
-                        style="--tape-color: #1a1a1a; --label-color: #2a2a2a;">
-                        <div class="tape-body">
-                            <div class="tape-label" style="background: #1a1a1a; border-color: #444;">
-                                <div class="tape-title" style="color: #ccc;">Hallowed Feathers</div>
-                                <div class="tape-subtitle" style="color: #cc6600;">2026</div>
-                            </div>
-                            <div class="tape-window">
-                                <div class="spool"></div>
-                                <div class="tape-ribbon"></div>
-                                <div class="spool"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="cassette" onclick="openProject('snail')"
-                        style="--tape-color: #1a2e2e; --label-color: #d0f0f0;">
-                        <div class="tape-body">
-                            <div class="tape-label">
-                                <div class="tape-title">S.N.A.I.L</div>
-                                <div class="tape-subtitle">2026</div>
-                            </div>
-                            <div class="tape-window">
-                                <div class="spool"></div>
-                                <div class="tape-ribbon"></div>
-                                <div class="spool"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="cassette" onclick="openProject('portfolio')"
-                        style="--tape-color: #1a1a2e; --label-color: #e8e0ff;">
-                        <div class="tape-body">
-                            <div class="tape-label">
-                                <div class="tape-title">Portfolio Website</div>
-                                <div class="tape-subtitle">2026</div>
-                            </div>
-                            <div class="tape-window">
-                                <div class="spool"></div>
-                                <div class="tape-ribbon"></div>
-                                <div class="spool"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="cassette" onclick="openProject('unity')"
-                        style="--tape-color: #1a2e1a; --label-color: #e0ffe0;">
-                        <div class="tape-body">
-                        <div class="tape-label">
-                            <div class="tape-title">Unity Game Dev</div>
-                            <div class="tape-subtitle">WIP</div>
-                        </div>
-                        <div class="tape-window">
-                            <div class="spool"></div>
-                            <div class="tape-ribbon"></div>
-                            <div class="spool"></div>
-                        </div>
-                        </div>
-                    </div>
-
-                    
-                    
-                </div>
-                <div class="shelf-plank"></div>
-            </div>
-
-            <div class="ticker-wrap">
-                <div class="ticker-track">
-                    <span class="ticker-content">
-                        ▶ PYTHON &nbsp;·&nbsp; C++ &nbsp;·&nbsp; JAVA &nbsp;·&nbsp; KOTLIN &nbsp;·&nbsp; UNITY &nbsp;·&nbsp; C# &nbsp;·&nbsp; ROS2 &nbsp;·&nbsp; DOCKER &nbsp;·&nbsp; YOLO &nbsp;·&nbsp; FIREBASE &nbsp;·&nbsp; FIRESTORE &nbsp;·&nbsp; GIT &nbsp;·&nbsp; ANDROID &nbsp;·&nbsp; COMPUTER VISION &nbsp;·&nbsp; GAME DEV &nbsp;·&nbsp; BACKEND ARCH &nbsp;·&nbsp; SQL &nbsp;·&nbsp; GITHUB PAGES &nbsp;·&nbsp; CURRENTLY BUILDING &nbsp;·&nbsp; SIGNAL STRONG &nbsp;·&nbsp; TAPE LOADED &nbsp;·&nbsp; UNIT-04 ONLINE &nbsp;·&nbsp;
-                    </span>
-                    <span class="ticker-content" aria-hidden="true">
-                        ▶ PYTHON &nbsp;·&nbsp; C++ &nbsp;·&nbsp; JAVA &nbsp;·&nbsp; KOTLIN &nbsp;·&nbsp; UNITY &nbsp;·&nbsp; C# &nbsp;·&nbsp; ROS2 &nbsp;·&nbsp; DOCKER &nbsp;·&nbsp; YOLO &nbsp;·&nbsp; FIREBASE &nbsp;·&nbsp; FIRESTORE &nbsp;·&nbsp; GIT &nbsp;·&nbsp; ANDROID &nbsp;·&nbsp; COMPUTER VISION &nbsp;·&nbsp; GAME DEV &nbsp;·&nbsp; BACKEND ARCH &nbsp;·&nbsp; SQL &nbsp;·&nbsp; GITHUB PAGES &nbsp;·&nbsp; CURRENTLY BUILDING &nbsp;·&nbsp; SIGNAL STRONG &nbsp;·&nbsp; TAPE LOADED &nbsp;·&nbsp; UNIT-04 ONLINE &nbsp;·&nbsp;
-                    </span>
-                </div>
-            </div>
-
-            <div class="now-playing" id="nowPlaying"></div>
- 
-            <div class="project-panel" id="projectPanel">
-                <button class="close-btn" onclick="closeProject()">✕ EJECT</button>
-                <div class="project-panel-label">// NOW PLAYING</div>
-                <h3 id="panelTitle"></h3>
-                <p id="panelDesc"></p>
-                <div class="project-tags" id="panelTags"></div>
-                <a href="#" class="project-link" id="panelLink" target="_blank">VIEW PROJECT →</a>
-            </div>
-
-            <div class="panel">
-                <div class="panel-label">SYS_WORK</div>
-                <h2>WORK EXPERIENCE</h2>
-                <p>
-                    
-                </p>
-            </div>
-
-            <div class="stripe-bar"></div>
+      <header>
+        <div class="header-top">
+          <div class="header-left">
+            <div class="header-label" id="bootLabel">// INITIALIZING...</div>
+            <h1>CLAYTON<br /><span>FRANDEEN</span></h1>
+          </div>
+          <div class="header-buttons">
+            <a href="https://github.com/ClaytonFrandeen" target="_blank" class="btn">GITHUB</a>
+            <a href="https://www.linkedin.com/in/clayton-frandeen" target="_blank" class="btn">LINKEDIN</a>
+          </div>
         </div>
-        <script src="script.js"></script>
-    </body>
+        <div class="header-sub">MODEL: CF-2003 · VER 1.0 · COMPLETE</div>
+        <div class="status-row">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="status-text">SIGNAL OK &nbsp;·&nbsp; TAPE LOADED &nbsp;·&nbsp; STANDBY</div>
+        </div>
+      </header>
+
+      <div class="panel-row">
+        <div class="panel">
+          <div class="panel-label">SYS_DATA</div>
+          <h2>OPERATOR PROFILE</h2>
+          <p>
+            OBJECTIVE .......... Backend Software Engineering<br />
+            SPECIALIZATION ..... Computer Vision / Game Dev<br />
+            CURRENT PROJECT .... Unity Game Dev + This Site<br />
+            MISSION ............ Tech for Environmental Impact
+          </p>
+        </div>
+        <div class="panel">
+          <div class="panel-label">SYS_LOG</div>
+          <h2>FIELD NOTES</h2>
+          <p>
+            Recent CS grad from CSUSM, currently breaking into the industry.
+            I've got hands-on experience working with kids in STEM education through Tréobytes, and
+            I'm about to start a Game Test Analysis role at PlayStation in July.
+            On the side I'm building this site and developing a game in Unity.
+            Long term I want to use software to tackle real environmental problems.
+            When I'm not coding I collect and consume vinyls and books — you might spot them around the site.
+          </p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-label">SYS_FILES</div>
+        <h2>PROJECT OVERVIEW</h2>
+        <p>
+          At CSU San Marcos I built projects across robotics, game dev, mobile,
+          and web, working in agile teams and applying real software engineering practices.
+          Skills picked up along the way include computer vision, databases, SOLID principles,
+          and backend architecture. Load a tape to dig in.
+        </p>
+      </div>
+
+      <!-- PROJECTS SHELF -->
+      <div class="cassette-shelf">
+        <div class="shelf-section-label">SYS_FILES &nbsp;·&nbsp; PROJECTS</div>
+        <div class="tape-row">
+
+          <div class="cassette" onclick="loadTape('trek')" data-id="trek"
+            style="--tape-color:#d70b0b; --label-color:#e8e0ff;">
+            <div class="tape-body">
+              <div class="tape-notch"></div>
+              <div class="tape-label">
+                <div class="tape-title">Trek App</div>
+                <div class="tape-subtitle">2025</div>
+              </div>
+              <div class="tape-window">
+                <div class="spool"></div><div class="tape-ribbon"></div><div class="spool"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cassette" onclick="loadTape('avian')" data-id="avian"
+            style="--tape-color:#1a1a1a; --label-color:#2a2a2a;">
+            <div class="tape-body">
+              <div class="tape-notch"></div>
+              <div class="tape-label" style="background:#1a1a1a; border-color:#444;">
+                <div class="tape-title" style="color:#ccc;">Hallowed Feathers</div>
+                <div class="tape-subtitle" style="color:#cc6600;">2026</div>
+              </div>
+              <div class="tape-window">
+                <div class="spool"></div><div class="tape-ribbon"></div><div class="spool"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cassette" onclick="loadTape('snail')" data-id="snail"
+            style="--tape-color:#1a2e2e; --label-color:#d0f0f0;">
+            <div class="tape-body">
+              <div class="tape-notch"></div>
+              <div class="tape-label">
+                <div class="tape-title">S.N.A.I.L</div>
+                <div class="tape-subtitle">2026</div>
+              </div>
+              <div class="tape-window">
+                <div class="spool"></div><div class="tape-ribbon"></div><div class="spool"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cassette" onclick="loadTape('portfolio')" data-id="portfolio"
+            style="--tape-color:#1a1a2e; --label-color:#e8e0ff;">
+            <div class="tape-body">
+              <div class="tape-notch"></div>
+              <div class="tape-label">
+                <div class="tape-title">Portfolio</div>
+                <div class="tape-subtitle">2026</div>
+              </div>
+              <div class="tape-window">
+                <div class="spool"></div><div class="tape-ribbon"></div><div class="spool"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cassette" onclick="loadTape('unity')" data-id="unity"
+            style="--tape-color:#1a2e1a; --label-color:#e0ffe0;">
+            <div class="tape-body">
+              <div class="tape-notch"></div>
+              <div class="tape-label">
+                <div class="tape-title">Unity Game Dev</div>
+                <div class="tape-subtitle">WIP</div>
+              </div>
+              <div class="tape-window">
+                <div class="spool"></div><div class="tape-ribbon"></div><div class="spool"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="shelf-plank"></div>
+      </div>
+
+      <!-- WORK EXPERIENCE SHELF -->
+      <div class="cassette-shelf shelf-work">
+        <div class="shelf-section-label">SYS_WORK &nbsp;·&nbsp; EXPERIENCE</div>
+        <div class="tape-row">
+
+          <div class="cassette" onclick="loadTape('treobytes')" data-id="treobytes"
+            style="--tape-color:#057375; --label-color:#fff2e6;">
+            <div class="tape-body">
+              <div class="tape-notch"></div>
+              <div class="tape-label">
+                <div class="tape-title">Tréobytes</div>
+                <div class="tape-subtitle">2025-2026</div>
+              </div>
+              <div class="tape-window">
+                <div class="spool"></div><div class="tape-ribbon"></div><div class="spool"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cassette" onclick="loadTape('photogenic')" data-id="photogenic"
+            style="--tape-color:#1d4b01; --label-color:#fff2e6;">
+            <div class="tape-body">
+              <div class="tape-notch"></div>
+              <div class="tape-label">
+                <div class="tape-title">Photogenic</div>
+                <div class="tape-subtitle">2025-2026</div>
+              </div>
+              <div class="tape-window">
+                <div class="spool"></div><div class="tape-ribbon"></div><div class="spool"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cassette" onclick="loadTape('bettys')" data-id="bettys"
+            style="--tape-color:#750000; --label-color:#fff2e6;">
+            <div class="tape-body">
+              <div class="tape-notch"></div>
+              <div class="tape-label">
+                <div class="tape-title">Betty Burgers</div>
+                <div class="tape-subtitle">2021-2024</div>
+              </div>
+              <div class="tape-window">
+                <div class="spool"></div><div class="tape-ribbon"></div><div class="spool"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="shelf-plank"></div>
+      </div>
+
+      <!-- TICKER -->
+      <div class="ticker-wrap">
+        <div class="ticker-track">
+          <span class="ticker-content">
+            ▶ PYTHON &nbsp;·&nbsp; C++ &nbsp;·&nbsp; JAVA &nbsp;·&nbsp; KOTLIN &nbsp;·&nbsp; UNITY &nbsp;·&nbsp; C# &nbsp;·&nbsp; ROS2 &nbsp;·&nbsp; DOCKER &nbsp;·&nbsp; YOLO &nbsp;·&nbsp; FIREBASE &nbsp;·&nbsp; FIRESTORE &nbsp;·&nbsp; GIT &nbsp;·&nbsp; ANDROID &nbsp;·&nbsp; COMPUTER VISION &nbsp;·&nbsp; GAME DEV &nbsp;·&nbsp; BACKEND ARCH &nbsp;·&nbsp; SQL &nbsp;·&nbsp; GITHUB PAGES &nbsp;·&nbsp; SIGNAL STRONG &nbsp;·&nbsp; TAPE LOADED &nbsp;·&nbsp; UNIT-04 ONLINE &nbsp;·&nbsp;
+          </span>
+          <span class="ticker-content" aria-hidden="true">
+            ▶ PYTHON &nbsp;·&nbsp; C++ &nbsp;·&nbsp; JAVA &nbsp;·&nbsp; KOTLIN &nbsp;·&nbsp; UNITY &nbsp;·&nbsp; C# &nbsp;·&nbsp; ROS2 &nbsp;·&nbsp; DOCKER &nbsp;·&nbsp; YOLO &nbsp;·&nbsp; FIREBASE &nbsp;·&nbsp; FIRESTORE &nbsp;·&nbsp; GIT &nbsp;·&nbsp; ANDROID &nbsp;·&nbsp; COMPUTER VISION &nbsp;·&nbsp; GAME DEV &nbsp;·&nbsp; BACKEND ARCH &nbsp;·&nbsp; SQL &nbsp;·&nbsp; GITHUB PAGES &nbsp;·&nbsp; SIGNAL STRONG &nbsp;·&nbsp; TAPE LOADED &nbsp;·&nbsp; UNIT-04 ONLINE &nbsp;·&nbsp;
+          </span>
+        </div>
+      </div>
+
+      <!-- MIXING BOARD -->
+      <div class="board-section">
+        <div class="panel-label">SYS_DECK &nbsp;·&nbsp; PROJECTS &amp; EXPERIENCE</div>
+
+        <div class="mixing-board">
+
+          <div class="deck-column">
+            <div class="deck-label">// TAPE DECK</div>
+            <div class="deck-slot" id="deckSlot">
+              <div class="deck-slot-opening" id="deckOpening">
+                <div class="deck-slot-grip"></div>
+                <div class="deck-slot-grip"></div>
+                <div class="deck-slot-grip"></div>
+              </div>
+              <div class="deck-tape-preview" id="deckTapePreview"></div>
+              <div class="deck-status" id="deckStatus">NO TAPE</div>
+            </div>
+            <div class="deck-controls">
+              <button class="deck-btn" id="ejectBtn" onclick="ejectTape()" disabled>⏏ EJECT</button>
+              <div class="deck-vu">
+                <div class="vu-bar" id="vu1"></div>
+                <div class="vu-bar" id="vu2"></div>
+                <div class="vu-bar" id="vu3"></div>
+                <div class="vu-bar" id="vu4"></div>
+                <div class="vu-bar" id="vu5"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="board-channels">
+            <div class="board-idle" id="boardIdle">
+              <div class="board-idle-text">[ SELECT A TAPE FROM THE SHELF ]</div>
+            </div>
+
+            <div class="board-detail" id="boardDetail">
+              <div class="detail-header">
+                <div>
+                  <div class="detail-type-label" id="detailTypeLabel"></div>
+                  <div class="detail-title" id="detailTitle"></div>
+                  <div class="detail-meta" id="detailMeta"></div>
+                </div>
+                <div id="detailLink"></div>
+              </div>
+              <div class="detail-desc" id="detailDesc"></div>
+              <div class="detail-tags" id="detailTags"></div>
+              <div class="detail-skills" id="detailSkills">
+                <div class="skills-label">// SIGNAL LEVELS</div>
+                <div class="skill-rows" id="skillRows"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="now-playing" id="nowPlaying"></div>
+      </div>
+
+      <div class="stripe-bar"></div>
+    </div>
+
+    <!-- Flying cassette clone for load animation -->
+    <div class="flying-tape" id="flyingTape" aria-hidden="true">
+      <div class="tape-body" id="flyingTapeBody">
+        <div class="tape-notch"></div>
+        <div class="tape-label" id="flyingTapeLabel">
+          <div class="tape-title" id="flyingTapeTitle"></div>
+          <div class="tape-subtitle" id="flyingTapeSub"></div>
+        </div>
+        <div class="tape-window">
+          <div class="spool"></div><div class="tape-ribbon"></div><div class="spool"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>

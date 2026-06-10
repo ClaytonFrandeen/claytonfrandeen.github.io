@@ -1,604 +1,860 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 :root {
-      --cream:   #fff2e6;
-      --orange:  #994a00;
-      --orange2: #cc6600;
-      --black:   #0a0a0a;
-      --shadow:  4px 4px 0px var(--black);
-      --shadow-lg: 6px 6px 0px var(--black);
-    }
+  --cream:     #fff2e6;
+  --orange:    #994a00;
+  --orange2:   #cc6600;
+  --black:     #0a0a0a;
+  --shadow:    4px 4px 0px var(--black);
+  --shadow-lg: 6px 6px 0px var(--black);
+}
 
+/* SCANLINE OVERLAY */
 body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: repeating-linear-gradient(
-        0deg,
-        rgba(0,0,0,0.025) 0px,
-        rgba(0,0,0,0.025) 1px,
-        transparent 1px,
-        transparent 3px
-      );
-      pointer-events: none;
-      z-index: 9999;
-    }
- 
-    /* GRAIN OVERLAY */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: -50%;
-      width: 200%;
-      height: 200%;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
-      opacity: 0.4;
-      pointer-events: none;
-      z-index: 9998;
-    }
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0,0,0,0.025) 0px,
+    rgba(0,0,0,0.025) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
 
-
-.Title {
-    color : #ff8c00;
-    text-align : center;
-    background-color:  #994a00;
-    font-family: Audiowide;
-    border: 2px solid black;
-    box-shadow: 4px 4px 0px black;
-    padding: 1rem;
+/* GRAIN OVERLAY */
+body::after {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 9998;
 }
 
 body {
-    background-color:   #fff2e6;
+  background-color: var(--cream);
 }
 
 p {
-    font-family: 'Courier Prime', Courier, monospace;
+  font-family: 'Courier Prime', Courier, monospace;
 }
 
+/* ── LAYOUT ── */
 .stripe-bar {
-      background: repeating-linear-gradient(
-        45deg,
-        var(--orange),
-        var(--orange) 10px,
-        var(--black) 10px,
-        var(--black) 20px
-      );
-      height: 12px;
-      width: 100%;
-      margin-bottom: 0;
-    }
+  background: repeating-linear-gradient(
+    45deg,
+    var(--orange),
+    var(--orange) 10px,
+    var(--black) 10px,
+    var(--black) 20px
+  );
+  height: 12px;
+  width: 100%;
+}
 
-    .page {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-    
-     header {
-      border: 2px solid var(--black);
-      border-top: none;
-      background: var(--black);
-      color: var(--cream);
-      padding: 2rem 2rem 1.5rem;
-      box-shadow: var(--shadow-lg);
-      position: relative;
-      margin-bottom: 2.5rem;
-    }
- 
-    .header-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--orange2);
-      margin-bottom: 0.5rem;
-    }
- 
-    header h1 {
-      font-family: 'Audiowide', sans-serif;
-      font-size: clamp(1.8rem, 5vw, 3.2rem);
-      color: var(--cream);
-      line-height: 1.1;
-      letter-spacing: 0.05em;
-    }
- 
-    header h1 span {
-      color: var(--orange2);
-    }
- 
-    .header-sub {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.8rem;
-      color: #aaa;
-      margin-top: 0.75rem;
-      letter-spacing: 0.1em;
-    }
-    .header-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+}
 
-    .header-buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-        align-self : center;
-        
-    }
+/* ── HEADER ── */
+header {
+  border: 2px solid var(--black);
+  border-top: none;
+  background: var(--black);
+  color: var(--cream);
+  padding: 2rem 2rem 1.5rem;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  margin-bottom: 2.5rem;
+}
 
-    .header-buttons .btn {
-        width:120px;
-        text-align: center;
-    }
-    .status-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 1.25rem;
-      padding-top: 1rem;
-      border-top: 1px solid #333;
-    }
- 
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--orange2);
-      animation: blink 1.5s step-end infinite;
-    }
-    .dot:nth-child(2) { animation-delay: 0.5s; background: #cc9900; }
-    .dot:nth-child(3) { animation-delay: 1s; background: #4a994a; }
- 
-    .status-text {
-      font-family: 'VT323', monospace;
-      font-size: 1rem;
-      color: #888;
-      letter-spacing: 0.08em;
-    }
- 
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0.1; }
-    }
+.header-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange2);
+  margin-bottom: 0.5rem;
+}
 
-    .panel {
-      border: 2px solid var(--black);
-      box-shadow: var(--shadow);
-      padding: 1.25rem 1.5rem;
-      background: var(--cream);
-      position: relative;
-      margin-bottom: 1.5rem;
-    }
- 
-    .panel-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 0.6rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
- 
-    .panel-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--orange);
-      opacity: 0.4;
-    }
- 
-    .panel h2 {
-      font-family: 'Audiowide', sans-serif;
-      font-size: 1.1rem;
-      margin-bottom: 0.75rem;
-      color: var(--black);
-    }
- 
-    .panel p {
-      font-size: 0.85rem;
-      line-height: 1.7;
-      color: #2a1a00;
-    }
- 
-    .panel-row {
-      display: flex;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
+header h1 {
+  font-family: 'Audiowide', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  color: var(--cream);
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+}
 
-    .panel-row .panel {
-      flex: 1;
-    }
-    
-    .btn {
-      display: inline-block;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 0.6rem 1.2rem;
-      border: 2px solid var(--black);
-      background: var(--orange);
-      color: var(--cream);
-      box-shadow: var(--shadow);
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.08s, box-shadow 0.08s;
-    }
- 
-    .btn:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 6px 6px 0px var(--black);
-    }
- 
-    .btn:active {
-      transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0px var(--black);
-    }
- 
-    .btn-ghost {
-      background: transparent;
-      color: var(--black);
-    }
- 
-    .btn-ghost:hover { background: var(--cream); }
+header h1 span { color: var(--orange2); }
+
+.header-sub {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-self: center;
+}
+
+.header-buttons .btn {
+  width: 120px;
+  text-align: center;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #333;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange2);
+  animation: blink 1.5s step-end infinite;
+}
+.dot:nth-child(2) { animation-delay: 0.5s;  background: #cc9900; }
+.dot:nth-child(3) { animation-delay: 1s;    background: #4a994a; }
+
+.status-text {
+  font-family: 'VT323', monospace;
+  font-size: 1rem;
+  color: #888;
+  letter-spacing: 0.08em;
+}
+
+/* ── PANELS ── */
+.panel {
+  border: 2px solid var(--black);
+  box-shadow: var(--shadow);
+  padding: 1.25rem 1.5rem;
+  background: var(--cream);
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.panel-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.panel-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--orange);
+  opacity: 0.4;
+}
+
+.panel h2 {
+  font-family: 'Audiowide', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--black);
+}
+
+.panel p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: #2a1a00;
+}
+
+.panel-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.panel-row .panel { flex: 1; }
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-block;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.2rem;
+  border: 2px solid var(--black);
+  background: var(--orange);
+  color: var(--cream);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.08s, box-shadow 0.08s;
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--black);
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--black);
+}
+
+/* ── CASSETTE SHELF ── */
+.cassette-shelf {
+  position: relative;
+  padding: 1.5rem 1rem 0;
+  border: 2px solid var(--black);
+  box-shadow: var(--shadow-lg);
+  background: #6c3f00;
+  overflow: visible;
+  margin-bottom: 0;
+}
+
+.shelf-plank {
+  position: relative;
+  height: 14px;
+  background: #3d2201;
+  border-top: 2px solid #5a3500;
+  border-bottom: 2px solid #0a0500;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  margin-top: 0.5rem;
+}
+
+.shelf-section-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--black);
+  padding: 0 0.5rem 0.6rem;
+  opacity: 0.8;
+}
+
+/* Work shelf gets a top accent to visually separate it */
+.shelf-work {
+  margin-top: 1.5rem;
+  border-top: 3px solid var(--orange);
+}
+
+.tape-row {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-end;
+  padding: 0 0.5rem 0;
+  flex-wrap: wrap;
+}
+
+/* Tapes in a wrapped row sit on the plank; give them bottom spacing so
+   multiple rows breathe before the final shelf-plank */
+.tape-row .cassette {
+  margin-bottom: 0.75rem;
+}
+
+/* ── CASSETTE (new shape: wider, cream label, hard shadow) ── */
+.cassette {
+  position: relative;
+  width: 100px;
+  cursor: pointer;
+  transform: translateY(0);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex-shrink: 0;
+}
+
+.cassette:hover {
+  transform: translateY(-20px);
+}
+
+.cassette.loading {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.tape-body {
+  width: 100px;
+  height: 64px;
+  background: var(--tape-color, #1a1a1a);
+  border: 2px solid var(--black);
+  box-shadow: 3px 3px 0 var(--orange);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Top notch */
+.tape-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 6px;
+  background: #1a0f00;
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+/* Label */
+.tape-label {
+  position: absolute;
+  top: 8px;
+  left: 5px;
+  right: 5px;
+  height: 22px;
+  background: var(--label-color, var(--cream));
+  border: 1px solid rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 4px;
+  overflow: hidden;
+}
+
+.tape-title {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 7px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--black);
+  line-height: 1.2;
+  font-weight: bold;
+  word-break: break-word;
+}
+
+.tape-subtitle {
+  font-family: 'VT323', monospace;
+  font-size: 10px;
+  color: var(--orange);
+  letter-spacing: 0.05em;
+}
+
+/* Spool window */
+.tape-window {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 82px;
+  height: 26px;
+  background: #0a0500;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 6px;
+}
+
+.spool {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #2a1500;
+  border: 1px solid #3a2500;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.spool::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: 1px solid #3a2500;
+}
+
+.spool::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #5a3500;
+}
+
+.tape-ribbon {
+  height: 3px;
+  flex: 1;
+  background: #1a0800;
+  margin: 0 2px;
+  align-self: center;
+}
+
+.cassette:hover .tape-body {
+  box-shadow: 5px 5px 0 var(--orange2);
+}
+
+/* ── TICKER ── */
+.ticker-wrap {
+  overflow: hidden;
+  background: var(--black);
+  border: 2px solid var(--black);
+  border-top: none;
+  padding: 6px 0;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.ticker-wrap::before,
+.ticker-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 40px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.ticker-wrap::before { left: 0;  background: linear-gradient(to right, var(--black), transparent); }
+.ticker-wrap::after  { right: 0; background: linear-gradient(to left,  var(--black), transparent); }
+
+.ticker-track {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker-scroll 22s linear infinite;
+}
+
+.ticker-track:hover { animation-play-state: paused; }
+
+.ticker-content {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--orange2);
+  flex-shrink: 0;
+}
+
+/* ── MIXING BOARD SECTION ── */
+.board-section {
+  border: 2px solid var(--black);
+  box-shadow: var(--shadow-lg);
+  background: var(--cream);
+  padding: 1.25rem 1.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.board-section .panel-label {
+  margin-bottom: 1rem;
+}
+
+.mixing-board {
+  display: flex;
+  gap: 1.25rem;
+  align-items: stretch;
+  background: #1a1a1a;
+  border: 2px solid var(--black);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+}
+
+/* ── DECK COLUMN ── */
+.deck-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex-shrink: 0;
+  width: 130px;
+}
+
+.deck-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: var(--orange2);
+  text-transform: uppercase;
+}
+
+.deck-slot {
+  background: #0d0d0d;
+  border: 2px solid #333;
+  height: 80px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.deck-slot-opening {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+  padding: 0.75rem;
+}
+
+.deck-slot-grip {
+  width: 70%;
+  height: 2px;
+  background: #2a2a2a;
+  border-radius: 1px;
+}
+
+.deck-tape-preview {
+  position: absolute;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 64px;
+  transition: bottom 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+}
+
+.deck-tape-preview.loaded {
+  bottom: 8px;
+}
+
+.deck-tape-preview .tape-body {
+  box-shadow: none;
+  transform: scale(0.9);
+  transform-origin: bottom center;
+}
+
+.deck-status {
+  font-family: 'VT323', monospace;
+  font-size: 13px;
+  color: #444;
+  letter-spacing: 0.1em;
+  position: absolute;
+  bottom: 4px;
+  width: 100%;
+  text-align: center;
+  transition: opacity 0.2s;
+}
+
+.deck-status.has-tape {
+  color: var(--orange2);
+}
+
+.deck-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.deck-btn {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid #444;
+  background: #1a1a1a;
+  color: #666;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: border-color 0.1s, color 0.1s;
+}
+
+.deck-btn:not(:disabled):hover {
+  border-color: var(--orange2);
+  color: var(--orange2);
+}
+
+.deck-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.deck-vu {
+  display: flex;
+  gap: 2px;
+  align-items: flex-end;
+  height: 24px;
+  flex: 1;
+}
+
+.vu-bar {
+  flex: 1;
+  border-radius: 1px;
+  background: #2a2a2a;
+  height: 30%;
+  transition: height 0.15s ease, background 0.15s ease;
+}
+
+.vu-bar.active { background: var(--orange2); }
+.vu-bar.active-hi { background: var(--cream); }
+
+/* ── BOARD CHANNELS (detail area) ── */
+.board-channels {
+  flex: 1;
+  min-height: 160px;
+  position: relative;
+}
+
+.board-idle {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.board-idle-text {
+  font-family: 'VT323', monospace;
+  font-size: 1.1rem;
+  color: #333;
+  letter-spacing: 0.1em;
+}
+
+.board-detail {
+  display: none;
+  padding: 0.25rem 0.25rem 0.25rem 0;
+  animation: fadeIn 0.3s ease;
+  height: 100%;
+}
+
+.board-detail.visible {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #2a2a2a;
+  padding-bottom: 0.5rem;
+}
+
+.detail-type-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  color: var(--orange2);
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.detail-title {
+  font-family: 'Audiowide', sans-serif;
+  font-size: 0.9rem;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+}
+
+.detail-meta {
+  font-family: 'VT323', monospace;
+  font-size: 0.85rem;
+  color: #888;
+  letter-spacing: 0.08em;
+  margin-top: 0.15rem;
+}
+
+.detail-link a {
+  display: inline-block;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--black);
+  background: var(--orange);
+  color: var(--cream);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.08s, box-shadow 0.08s;
+  white-space: nowrap;
+}
+
+.detail-link a:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--black);
+}
+
+.detail-link a:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--black);
+}
 
 
-    .cassette-shelf {
-      position: relative;
-      padding: 1.5rem 1rem 0;
-      border: 2px solid var(--black);
-      box-shadow: var(--shadow-lg);
-      background: #6c3f00;
-      overflow: visible;
-    }
- 
-    /* Shelf plank */
-    .shelf-plank {
-      position: relative;
-      height: 14px;
-      background: #3d2201;
-      border-top: 2px solid #5a3500;
-      border-bottom: 2px solid #0a0500;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-      margin-top: 0.5rem;
-    }
- 
-    /* ── TAPE ROW ── */
-    .tape-row {
-      display: flex;
-      gap: 2.5rem;
-      align-items: flex-end;
-      padding: 0 0.5rem;
-      flex-wrap: wrap;
-    }
- 
-    /* ── SINGLE CASSETTE ── */
-    .cassette {
-      position: relative;
-      width: 72px;
-      cursor: pointer;
-      transform: translateY(0);
-      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-      flex-shrink: 0;
-    }
- 
-    .cassette:hover {
-      transform: translateY(-22px);
-    }
- 
-    /* The tape body */
-    .tape-body {
-      width: 100px;
-      height: 64px;
-      background: var(--tape-color, #1a1a1a);
-      border: 2px solid var(--black);
-      box-shadow: 2px 0 0 rgba(255,255,255,0.05) inset, -1px 0 0 rgba(0,0,0,0.5) inset;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      overflow: hidden;
-    }
- 
-    /* Top notch cutout */
-    .tape-body::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 36px;
-      height: 6px;
-      background: #1a0f00;
-      border-bottom: 1px solid rgba(0,0,0,0.4);
-    }
- 
-    /* Label area */
-    .tape-label {
-      position: absolute;
-      top: 8px;
-      left: 5px;
-      right: 5px;
-      bottom: unset;
-      background: var(--label-color, var(--cream));
-      border: 1px solid rgba(0,0,0,0.3);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 0px 4px;
-      overflow: hidden;
-    }
- 
-    .tape-title {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 7px;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      text-align: center;
-      color: var(--black);
-      line-height: 1.3;
-      font-weight: bold;
-      word-break: break-word;
-    }
- 
-    .tape-subtitle {
-      font-family: 'VT323', monospace;
-      font-size: 10px;
-      color: var(--orange);
-      letter-spacing: 0.05em;
-    }
- 
-    /* Spool window */
-    .tape-window {
-      position: absolute;
-      bottom: 4px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 76px;
-      height: 30px;
-      background: #0a0500;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      padding: 0 6px;
-    }
- 
-    .spool {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: #2a1500;
-      border: 1px solid #3a2500;
-      position: relative;
-      flex-shrink: 0;
-    }
-    .spool::before {
-      content: '';
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 14px; height: 14px;
-      border-radius: 50%;
-      border: 1px solid #3a2500;
-    }
-    .spool::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #5a3500;
-    }
+.detail-desc {
+  font-family: 'Courier Prime', Courier, monospace;
+  font-size: 0.75rem;
+  line-height: 1.65;
+  color: #bbb;
+}
 
-    .tape-ribbon {
-      height: 3px;
-      flex: 1;
-      background: #1a0800;
-      margin: 0 2px;
-      align-self: center;
-    }
- 
-    /* Hover glow */
-    .cassette:hover .tape-body {
-      box-shadow: 0 0 12px rgba(204, 102, 0, 0.3), 2px 0 0 rgba(255,255,255,0.05) inset;
-    }
- 
-    /* ── PROJECT DETAIL PANEL ── */
-    .project-panel {
-      display: none;
-      margin-top: 2rem;
-      border: 2px solid var(--black);
-      box-shadow: var(--shadow-lg);
-      background: var(--cream);
-      padding: 1.5rem;
-      position: relative;
-      animation: slideIn 0.2s ease;
-      margin-bottom: 1.5rem;
-    }
- 
-    .project-panel.active {
-      display: block;
-    }
- 
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
- 
-    .project-panel-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding-right: 5rem;
-    }
- 
-    .project-panel-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--orange);
-      opacity: 0.4;
-    }
- 
-    .project-panel h3 {
-      font-family: 'Audiowide', sans-serif;
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
- 
-    .project-panel p {
-      font-size: 0.8rem;
-      line-height: 1.7;
-      color: #2a1a00;
-      margin-bottom: 1.5rem;
-    }
- 
-    .project-tags {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-    }
- 
-    .tag {
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.2rem 0.5rem;
-      border: 1px solid var(--orange);
-      color: var(--orange);
-    }
- 
-    .project-link {
-      display: inline-block;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 0.5rem 1rem;
-      border: 2px solid var(--black);
-      background: var(--orange);
-      color: var(--cream);
-      box-shadow: var(--shadow);
-      text-decoration: none;
-      transition: transform 0.08s, box-shadow 0.08s;
-    }
- 
-    .project-link:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 6px 6px 0 var(--black);
-    }
- 
-    .close-btn {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      background: none;
-      border: 1px solid #999;
-      color: #999;
-      padding: 0.2rem 0.5rem;
-      cursor: pointer;
-    }
- 
-    .close-btn:hover { border-color: var(--black); color: var(--black); }
+.detail-tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
 
-    .now-playing {
-      font-family: 'VT323', monospace;
-      font-size: 0.9rem;
-      color: var(--orange2);
-      letter-spacing: 0.1em;
-      margin-top: 0.75rem;
-      min-height: 1.2rem;
-    }
- 
-    .now-playing span {
-      animation: blink 1s step-end infinite;
-    }
- 
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
+.detail-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.45rem;
+  border: 1px solid var(--orange);
+  color: var(--orange2);
+}
 
-    .ticker-wrap {
-      overflow: hidden;
-      background: var(--black);
-      border: 2px solid var(--black);
-      border-top: none;
-      padding: 6px 0;
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
- 
-    .ticker-wrap::before,
-    .ticker-wrap::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 40px;
-      z-index: 2;
-      pointer-events: none;
-    }
- 
-    .ticker-wrap::before {
-      left: 0;
-      background: linear-gradient(to right, var(--black), transparent);
-    }
- 
-    .ticker-wrap::after {
-      right: 0;
-      background: linear-gradient(to left, var(--black), transparent);
-    }
- 
-    .ticker-track {
-      display: flex;
-      white-space: nowrap;
-      animation: ticker-scroll 20s linear infinite;
-    }
- 
-    .ticker-track:hover {
-      animation-play-state: paused;
-    }
- 
-    .ticker-content {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      color: var(--orange2);
-      flex-shrink: 0;
-    }
- 
-    @keyframes ticker-scroll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
- 
-    .boot-cursor {
-      display: inline-block;
-      width: 7px;
-      height: 0.75em;
-      background: var(--orange2);
-      vertical-align: middle;
-      margin-left: 2px;
-      animation: blink 0.7s step-end infinite;
-    }
+/* ── SKILL BARS (work tapes) ── */
+.detail-skills {
+  display: none;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-top: 1px solid #2a2a2a;
+  padding-top: 0.5rem;
+}
+
+.detail-skills.visible {
+  display: flex;
+}
+
+.skills-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  color: var(--orange2);
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.skill-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.skill-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-name {
+  font-family: 'VT323', monospace;
+  font-size: 0.8rem;
+  color: #777;
+  width: 80px;
+  flex-shrink: 0;
+  letter-spacing: 0.06em;
+}
+
+.skill-track {
+  flex: 1;
+  height: 5px;
+  background: #222;
+  border: 1px solid #2a2a2a;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  background: var(--orange2);
+  width: 0%;
+  transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.skill-val {
+  font-family: 'VT323', monospace;
+  font-size: 0.75rem;
+  color: #555;
+  width: 28px;
+  text-align: right;
+}
+
+/* ── NOW PLAYING ── */
+.now-playing {
+  font-family: 'VT323', monospace;
+  font-size: 0.9rem;
+  color: var(--orange2);
+  letter-spacing: 0.1em;
+  margin-top: 0.75rem;
+  min-height: 1.2rem;
+}
+
+.now-playing span {
+  animation: blink 1s step-end infinite;
+}
+
+/* ── FLYING TAPE (animation clone) ── */
+.flying-tape {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+  opacity: 0;
+  transition: none;
+}
+
+.flying-tape.animating {
+  opacity: 1;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes vuPulse {
+  0%, 100% { height: 30%; }
+  25%       { height: 90%; }
+  50%       { height: 55%; }
+  75%       { height: 75%; }
+}
+
+.boot-cursor {
+  display: inline-block;
+  width: 7px;
+  height: 0.75em;
+  background: var(--orange2);
+  vertical-align: middle;
+  margin-left: 2px;
+  animation: blink 0.7s step-end infinite;
+}
