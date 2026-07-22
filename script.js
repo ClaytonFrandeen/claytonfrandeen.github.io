@@ -112,7 +112,7 @@ const tapeData = {
     type: 'work',
     title: 'Photogenic INC. / San Diego Zoo Safari Park',
     meta: 'Photo Sales Associate · MARCH 2025 - CURRENT',
-    desc: 'ront-line customer engagement at a high-volume zoo environment — greeting and photographing 300+ visitors daily. Presented and sold photo packages using interpersonal skills and product knowledge. Set up and managed portable kiosk displays to showcase guest photos on-site.',
+    desc: 'Front-line customer engagement at a high-volume zoo environment — greeting and photographing 300+ visitors daily. Presented and sold photo packages using interpersonal skills and product knowledge. Set up and managed portable kiosk displays to showcase guest photos on-site.',
     tags: ['Photography', 'Sales', 'Customer Service'],
     link: '#',
     linkLabel: null,
