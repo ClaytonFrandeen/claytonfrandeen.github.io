@@ -92,6 +92,23 @@ const tapeData = {
   },
 
   // WORK EXPERIENCE
+  yoh: {
+    type: 'work',
+    title: 'Yoh',
+    meta: 'Game Test Analyst · AUGUST 2026 - PRESENT',
+    desc: 'Test unreleased PlayStation titles through structured test cases and exploratory gameplay. Identify, reproduce, and document gameplay, UI, functional, and technical defects through detailed bug reports. Work alongside QA and development teams to communicate issues, validate fixes, and support the quality of the game throughout development.',
+    tags: ['Game QA', 'Bug Testing', 'Test Cases', 'Defect Reporting'],
+    link: '#',
+    linkLabel: null,
+    skills: [
+      { name: 'Game QA',     val: 88 },
+      { name: 'Bug Reports', val: 92 },
+      { name: 'Testing',     val: 90 },
+      { name: 'Comm.',       val: 85 },
+    ],
+  },
+
+
   treobytes: {
     type: 'work',
     title: 'Tréobytes',
